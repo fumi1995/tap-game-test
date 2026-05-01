@@ -59,18 +59,24 @@ jobs:
             -scheme Unity-iPhone \
             -configuration Release \
             -sdk iphoneos \
+            -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             build
 
+      - name: Show files
+        run: |
+          pwd
+          ls -R ios-build
+
       - name: Zip built .app
         run: |
-          cd ios-build/iOS/Release-iphoneos
+          cd ios-build/iOS/build/Build/Products/Release-iphoneos
           zip -r Unity-iPhone-app.zip Unity-iPhone.app
 
       - name: Upload .app Artifact
         uses: actions/upload-artifact@v4
         with:
           name: unsigned-ios-app
-          path: ios-build/build/Release-iphoneos/Unity-iPhone-app.zip
+          path: ios-build/iOS/build/Build/Products/Release-iphoneos/Unity-iPhone-app.zip
