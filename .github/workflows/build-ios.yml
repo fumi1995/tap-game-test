@@ -53,7 +53,7 @@ jobs:
 
       - name: Build WITHOUT signing
         run: |
-          cd ios-build/build/iOS
+          cd ios-build/iOS
           xcodebuild \
             -project Unity-iPhone.xcodeproj \
             -scheme Unity-iPhone \
