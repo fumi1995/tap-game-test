@@ -46,9 +46,14 @@ jobs:
       - name: Show Xcode Version
         run: xcodebuild -version
 
+      - name: Show files
+        run: |
+          pwd
+          ls -R ios-build
+
       - name: Build WITHOUT signing
         run: |
-          cd ios-build
+          cd ios-build/build/iOS
           xcodebuild \
             -project Unity-iPhone.xcodeproj \
             -scheme Unity-iPhone \
