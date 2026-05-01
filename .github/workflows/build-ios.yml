@@ -66,7 +66,7 @@ jobs:
 
       - name: Zip built .app
         run: |
-          cd ios-build/build/Release-iphoneos
+          cd ios-build/iOS/Release-iphoneos
           zip -r Unity-iPhone-app.zip Unity-iPhone.app
 
       - name: Upload .app Artifact
