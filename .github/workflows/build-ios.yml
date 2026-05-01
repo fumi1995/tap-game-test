@@ -73,10 +73,10 @@ jobs:
       - name: Zip built .app
         run: |
           cd ios-build/iOS/build/Build/Products/Release-iphoneos
-          zip -r Unity-iPhone-app.zip Unity-iPhone.app
+          zip -r TapGame-app.zip TapGame.app
 
       - name: Upload .app Artifact
         uses: actions/upload-artifact@v4
         with:
           name: unsigned-ios-app
-          path: ios-build/iOS/build/Build/Products/Release-iphoneos/Unity-iPhone-app.zip
+          path: ios-build/iOS/build/Build/Products/Release-iphoneos/TapGame-app.zip
