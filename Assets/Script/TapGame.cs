@@ -10,12 +10,15 @@ public class TapGame : MonoBehaviour
     [SerializeField]
     private Transform _tapEffect;
 
-    void OnPreformed(InputAction.CallbackContext context)
+    void OnStarted(InputAction.CallbackContext context)
     {
         var tapEffectInstance = Instantiate(_tapEffect, transform);
-        var screenPos = context.ReadValue<Vector2>();
-        var worldPos = _camera.ScreenToWorldPoint(screenPos);
-        tapEffectInstance.position = new Vector3(worldPos.x, worldPos.y, 0);
+        if(context.control.device is Pointer pointer)
+        {
+            var screenPos = pointer.position.ReadValue();
+            var worldPos = _camera.ScreenToWorldPoint(screenPos);
+            tapEffectInstance.position = new Vector3(worldPos.x, worldPos.y, 0);
+        }
     }
 
     void OnEnable()
@@ -23,7 +26,7 @@ public class TapGame : MonoBehaviour
         if(_pointerClickAction == null) return;
 
         _pointerClickAction.Enable();
-        _pointerClickAction.performed += OnPreformed;
+        _pointerClickAction.started += OnStarted;
     }
     
     void OnDisable()
@@ -31,6 +34,6 @@ public class TapGame : MonoBehaviour
         if(_pointerClickAction == null) return;
 
         _pointerClickAction.Disable();
-        _pointerClickAction.performed -= OnPreformed;
+        _pointerClickAction.started -= OnStarted;
     }
 }
