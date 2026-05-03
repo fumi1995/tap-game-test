@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1266699819911583531}
   - component: {fileID: 9116793098802339760}
   m_Layer: 0
-  m_Name: pfb_ch_sassy
+  m_Name: pfb_ch_sas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
