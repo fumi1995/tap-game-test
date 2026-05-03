@@ -332,30 +332,40 @@ MonoBehaviour:
   _pointerClickAction:
     m_Name: Pointer Click
     m_Type: 0
-    m_ExpectedControlType: Button
+    m_ExpectedControlType: 
     m_Id: 88229b9b-0c81-4a60-b5df-7a2a9f963f50
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 3ce923c5-0407-4cda-bac0-6b858ab8c992
-      m_Path: <Touchscreen>/primaryTouch/position
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pointer Click
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 122f6fab-27ab-4ab3-a0ab-8bc6a7c4b8c4
-      m_Path: <Mouse>/leftButton
+      m_Id: bf21639c-511f-4528-8a2e-7aafb9dbbda4
+      m_Path: <Pointer>/press
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Pointer Click
       m_Flags: 0
     m_Flags: 0
+  _pointerPressAction:
+    m_Name: Pointer Press
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 08352e3e-85af-4cb0-ae52-f61c9ad811b1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0d974266-c02f-4ba9-97cf-0acbd27c31bf
+      m_Path: <Pointer>/press
+      m_Interactions: Hold
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pointer Press
+      m_Flags: 0
+    m_Flags: 0
   _camera: {fileID: 330585545}
   _tapEffect: {fileID: 3661610690055000410, guid: bfd9082c8ef484e78889859672bbcfe6, type: 3}
+  _pressEffect: {fileID: 1876857151}
 --- !u!4 &1208941834
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +381,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1465108128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2015923909492050409, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_Name
+      value: pfb_fx_press
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015923909492050409, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.95603
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.22328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
 --- !u!1 &1502605398
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +628,11 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!4 &1876857151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3661610690055000410, guid: 4bf0211ce4c5d40c880d2abfe2c4077b, type: 3}
+  m_PrefabInstance: {fileID: 1465108128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -565,3 +641,4 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 1502605401}
   - {fileID: 256518037}
+  - {fileID: 1465108128}
