@@ -148,6 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0282881beda04323aee5b0a27c488b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characters:
+  - {fileID: -1266699819911583531, guid: c7d59d97812ae449490d53ea354def62, type: 3}
+  _spawnInterval: 5
+  _spawnIntervalRandamize: 3
 --- !u!4 &256518037
 Transform:
   m_ObjectHideFlags: 0
@@ -345,7 +349,7 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Pointer Click
       m_Flags: 0
-    m_Flags: 0
+    m_Flags: 1
   _pointerPressAction:
     m_Name: Pointer Press
     m_Type: 0
