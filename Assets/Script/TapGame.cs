@@ -41,12 +41,12 @@ public class TapGame : MonoBehaviour
 
     void OnEnable()
     {
-        _pointerClickAction.Enable();
         _pointerClickAction.started += OnTap;
+        _pointerClickAction.Enable();
 
-        _pointerPressAction.Enable();
         _pointerPressAction.performed += OnPressPerformed;
         _pointerPressAction.canceled += OnPressCanceled;
+        _pointerPressAction.Enable();
     }
     
     void OnDisable()
@@ -54,7 +54,7 @@ public class TapGame : MonoBehaviour
         _pointerClickAction.Disable();
         _pointerClickAction.started -= OnTap;
 
-        _pointerPressAction.Enable();
+        _pointerPressAction.Disable();
         _pointerPressAction.performed += OnPressPerformed;
         _pointerPressAction.canceled += OnPressCanceled;
     }
