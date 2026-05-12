@@ -10,9 +10,11 @@ public class TapGame : MonoBehaviour
     [SerializeField]
     private Camera _camera;
     [SerializeField]
-    private Transform _tapEffect;
+    private ParticleSystem _tapEffect;
     [SerializeField]
-    private Transform _pressEffect;
+    private AudioSource _tapAudioSource;
+    [SerializeField]
+    private ParticleSystem _pressEffect;
 
     void OnTap(InputAction.CallbackContext context)
     {
@@ -22,21 +24,20 @@ public class TapGame : MonoBehaviour
 
         var screenPos = Pointer.current.position.ReadValue();
         var worldPos = _camera.ScreenToWorldPoint(screenPos);
-        tapEffectInstance.position = new Vector3(worldPos.x, worldPos.y, 0);
-
-        Debug.Log(screenPos);
+        tapEffectInstance.transform.position = new Vector3(worldPos.x, worldPos.y, 0);
     }
 
     void OnPressPerformed(InputAction.CallbackContext context)
     {
         if(Pointer.current == null) return;
 
-        _pressEffect.gameObject.SetActive(true);
+        _pressEffect.Play();
+        _tapAudioSource.Play();
     }
 
     void OnPressCanceled(InputAction.CallbackContext context)
     {
-        _pressEffect.gameObject.SetActive(false);
+        _pressEffect.Stop();
     }
 
     void OnEnable()
@@ -65,6 +66,6 @@ public class TapGame : MonoBehaviour
 
         var screenPos = Pointer.current.position.ReadValue();
         var worldPos = _camera.ScreenToWorldPoint(screenPos);
-        _pressEffect.position = new Vector3(worldPos.x, worldPos.y, 0);
+        _pressEffect.transform.position = new Vector3(worldPos.x, worldPos.y, 0);
     }
 }
