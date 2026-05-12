@@ -15,6 +15,12 @@ public class TapGame : MonoBehaviour
     private AudioSource _tapAudioSource;
     [SerializeField]
     private ParticleSystem _pressEffect;
+    [SerializeField]
+    private CharacterManager _characterManager;
+    [SerializeField]
+    private ScoreText _scoreText;
+
+    private int _score;
 
     void OnTap(InputAction.CallbackContext context)
     {
@@ -58,6 +64,15 @@ public class TapGame : MonoBehaviour
         _pointerPressAction.Disable();
         _pointerPressAction.performed += OnPressPerformed;
         _pointerPressAction.canceled += OnPressCanceled;
+    }
+
+    void Start()
+    {
+        _scoreText.UpdateScore(_score);
+        _characterManager.Initialize(point => {
+                _score+=point;
+                _scoreText.UpdateScore(_score);
+            });
     }
 
     void Update()

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class CharacterManager : MonoBehaviour
     private float _spawnIntervalRandamize = 5f;
 
     private float _spawnTimer;
+    private Action<int> _defeatAction;
+
+    public void Initialize(Action<int> defeatAction)
+    {
+        _defeatAction = defeatAction;
+    }
 
     void Update()
     {
@@ -29,7 +37,8 @@ public class CharacterManager : MonoBehaviour
 
             Vector3 worldPos = Camera.main.ViewportToWorldPoint(screenPos);
 
-            Instantiate(choicedCharacter, worldPos, Quaternion.identity);
+            var instance = Instantiate(choicedCharacter, worldPos, Quaternion.identity);
+            instance.Initialize(_defeatAction);
             
             _spawnTimer = _spawnInterval + Random.Range(0f, _spawnIntervalRandamize);
         }

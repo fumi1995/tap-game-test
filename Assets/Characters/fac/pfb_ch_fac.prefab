@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c8a0d77a68b48419a44b1e4f37e6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _point: 10
   _lifeTime: 10
   _spawnArea: 0
   _padding: {x: 0, y: 0, z: 0, w: 0}

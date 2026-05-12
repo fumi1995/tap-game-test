@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CharacterBehaviour : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class CharacterBehaviour : MonoBehaviour
         OutsideScreen
     }
 
+    [SerializeField]
+    private int _point;
     [SerializeField, Range(0f, 30f)]
     private float _lifeTime = 10f;
     [SerializeField]
@@ -19,6 +23,12 @@ public class CharacterBehaviour : MonoBehaviour
     private Animator _animator;
     private float _lifeTimeTimer;
     private bool _isDied;
+    private Action<int> _defeatAction;
+
+    public void Initialize(Action<int> defeatAction)
+    {
+        _defeatAction = defeatAction;
+    }
 
     public Vector2 CalculateSpawnPos()
     {
@@ -73,5 +83,6 @@ public class CharacterBehaviour : MonoBehaviour
         yield return new WaitForAnimation(_animator, "act");
 
         Destroy(gameObject);
+        _defeatAction?.Invoke(_point);
     }
 }
