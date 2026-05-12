@@ -60,14 +60,7 @@ public class CharacterBehaviour : MonoBehaviour
         _animator.Play("out");
 
         yield return null;
-
-        var layerNum = 0;
-		var currentAnimatorState = _animator.GetCurrentAnimatorStateInfo(layerNum);
-
-		while(currentAnimatorState.normalizedTime < 1)
-        {
-            yield return null;
-        }
+        yield return new WaitForAnimation(_animator, "out");
 
         Destroy(gameObject);
     }
@@ -77,14 +70,7 @@ public class CharacterBehaviour : MonoBehaviour
         _animator.Play("act");
 
         yield return null;
-
-        var layerNum = 0;
-		var currentAnimatorState = _animator.GetCurrentAnimatorStateInfo(layerNum);
-
-		while(currentAnimatorState.IsName("act") && currentAnimatorState.normalizedTime < 1)
-        {
-            yield return null;
-        }
+        yield return new WaitForAnimation(_animator, "act");
 
         Destroy(gameObject);
     }
